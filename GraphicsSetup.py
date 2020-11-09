@@ -9,33 +9,77 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from content import Ui_MainWindow as uw
 
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(800, 600)
+        MainWindow.resize(464, 392)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("../../Downloads/bitmap_images_2/BOCOF001.xbm"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        MainWindow.setWindowIcon(icon)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
+        self.label = QtWidgets.QLabel(self.centralwidget)
+        self.label.setGeometry(QtCore.QRect(8, 30, 441, 31))
+        self.label.setAlignment(QtCore.Qt.AlignCenter)
+        self.label.setObjectName("label")
+        self.label_2 = QtWidgets.QLabel(self.centralwidget)
+        self.label_2.setGeometry(QtCore.QRect(0, 80, 451, 41))
+        self.label_2.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_2.setObjectName("label_2")
+        self.label_3 = QtWidgets.QLabel(self.centralwidget)
+        self.label_3.setGeometry(QtCore.QRect(10, 100, 441, 71))
+        self.label_3.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_3.setObjectName("label_3")
+        self.label_4 = QtWidgets.QLabel(self.centralwidget)
+        self.label_4.setGeometry(QtCore.QRect(50, 200, 71, 31))
+        self.label_4.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.label_4.setObjectName("label_4")
+        self.name = QtWidgets.QLineEdit(self.centralwidget)
+        self.name.setGeometry(QtCore.QRect(130, 200, 311, 31))
+        self.name.setObjectName("name")
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton.setGeometry(QtCore.QRect(90, 30, 80, 20))
+        self.pushButton.setGeometry(QtCore.QRect(60, 260, 91, 31))
         self.pushButton.setObjectName("pushButton")
+        self.pushButton_2 = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_2.setGeometry(QtCore.QRect(170, 260, 121, 31))
+        self.pushButton_2.setObjectName("pushButton_2")
+        self.pushButton_3 = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_3.setGeometry(QtCore.QRect(310, 260, 111, 31))
+        self.pushButton_3.setObjectName("pushButton_3")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 19))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 464, 19))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
-        self.statusbar = QtWidgets.QStatusBar(MainWindow)
-        self.statusbar.setObjectName("statusbar")
-        MainWindow.setStatusBar(self.statusbar)
+
+        def content():
+            window = QtWidgets.QMainWindow()
+            ui = uw()
+            ui.setupUi(window)
+            window.show()
 
         self.retranslateUi(MainWindow)
+        self.pushButton_2.clicked.connect(MainWindow.close)
+        self.pushButton_3.clicked.connect(content)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.pushButton.setText(_translate("MainWindow", "PushButton"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Windows Setup"))
+        self.label.setText(_translate("MainWindow", "In the window below enter Your full name"))
+        self.label_2.setText(_translate("MainWindow", "Then press Continue or press \n"
+"ENTER"))
+        self.label_3.setText(_translate("MainWindow", "\n"
+"The information you entered will be \n"
+"used by the Setup program for \n"
+"further installation Windows systems"))
+        self.label_4.setText(_translate("MainWindow", "Name:"))
+        self.pushButton.setText(_translate("MainWindow", "Continue"))
+        self.pushButton_2.setText(_translate("MainWindow", "Exit Setup"))
+        self.pushButton_3.setText(_translate("MainWindow", "Content"))
 
 
 def start():
