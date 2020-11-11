@@ -12,24 +12,29 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from content import Ui_MainWindow as uw
 from checking import Ui_Dialog as uwc
 
+
 class Ui_MainWindow(object):
-    def checking(self,name,name_2):
+    def checking(self, name, name_2):
         if name.text() != "".rstrip() and name_2.text() != "".rstrip():
             self.window = QtWidgets.QMainWindow()
             self.ui = uwc()
             self.ui.setupUi(self.window)
             self.window.show()
+
     def contents(self):
         self.window = QtWidgets.QMainWindow()
         self.ui = uw()
         self.ui.setupUi(self.window)
         self.window.show()
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(464, 392)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("../../Downloads/bitmap_images_2/BOCOF001.xbm"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("../../Downloads/bitmap_images_2/BOCOF001.xbm"), QtGui.QIcon.Normal,
+                       QtGui.QIcon.Off)
         MainWindow.setWindowIcon(icon)
+
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.label = QtWidgets.QLabel(self.centralwidget)
@@ -46,7 +51,7 @@ class Ui_MainWindow(object):
         self.label_3.setObjectName("label_3")
         self.label_4 = QtWidgets.QLabel(self.centralwidget)
         self.label_4.setGeometry(QtCore.QRect(50, 200, 71, 31))
-        self.label_4.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.label_4.setAlignment(QtCore.Qt.AlignRight | QtCore.Qt.AlignTrailing | QtCore.Qt.AlignVCenter)
         self.label_4.setObjectName("label_4")
         self.name = QtWidgets.QLineEdit(self.centralwidget)
         self.name.setGeometry(QtCore.QRect(130, 200, 311, 31))
@@ -65,7 +70,7 @@ class Ui_MainWindow(object):
         self.name_2.setObjectName("name_2")
         self.label_5 = QtWidgets.QLabel(self.centralwidget)
         self.label_5.setGeometry(QtCore.QRect(30, 240, 91, 41))
-        self.label_5.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.label_5.setAlignment(QtCore.Qt.AlignRight | QtCore.Qt.AlignTrailing | QtCore.Qt.AlignVCenter)
         self.label_5.setObjectName("label_5")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
@@ -77,7 +82,7 @@ class Ui_MainWindow(object):
         self.pushButton_2.clicked.connect(MainWindow.close)
         self.pushButton_3.clicked.connect(self.contents)
         self.pushButton.clicked.connect(MainWindow.close)
-        self.pushButton.clicked.connect(self.checking(self,self.name,self.name_2))
+        self.pushButton.clicked.connect(self.a)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -85,11 +90,11 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "Windows Setup"))
         self.label.setText(_translate("MainWindow", "In the window below enter Your full name"))
         self.label_2.setText(_translate("MainWindow", "Then press Continue or press \n"
-"ENTER"))
+                                                      "ENTER"))
         self.label_3.setText(_translate("MainWindow", "\n"
-"The information you entered will be \n"
-"used by the Setup program for \n"
-"further installation Windows systems"))
+                                                      "The information you entered will be \n"
+                                                      "used by the Setup program for \n"
+                                                      "further installation Windows systems"))
         self.label_4.setText(_translate("MainWindow", "Name:"))
         self.pushButton.setText(_translate("MainWindow", "Continue"))
         self.pushButton_2.setText(_translate("MainWindow", "Exit Setup"))
