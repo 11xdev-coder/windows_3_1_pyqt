@@ -100,7 +100,7 @@ further installation Windows systems</string>
     <property name="geometry">
      <rect>
       <x>60</x>
-      <y>260</y>
+      <y>300</y>
       <width>91</width>
       <height>31</height>
      </rect>
@@ -113,7 +113,7 @@ further installation Windows systems</string>
     <property name="geometry">
      <rect>
       <x>170</x>
-      <y>260</y>
+      <y>300</y>
       <width>121</width>
       <height>31</height>
      </rect>
@@ -126,13 +126,39 @@ further installation Windows systems</string>
     <property name="geometry">
      <rect>
       <x>310</x>
-      <y>260</y>
+      <y>300</y>
       <width>111</width>
       <height>31</height>
      </rect>
     </property>
     <property name="text">
      <string>Content</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="name_2">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>250</y>
+      <width>311</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>240</y>
+      <width>91</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Password:</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
     </property>
    </widget>
   </widget>
@@ -178,6 +204,38 @@ further installation Windows systems</string>
     <hint type="destinationlabel">
      <x>331</x>
      <y>351</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>89</x>
+     <y>290</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>85</x>
+     <y>349</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>deleteLater()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>73</x>
+     <y>299</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>36</x>
+     <y>303</y>
     </hint>
    </hints>
   </connection>

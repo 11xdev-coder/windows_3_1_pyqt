@@ -10,9 +10,20 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from content import Ui_MainWindow as uw
-
+from checking import Ui_Dialog as uwc
 
 class Ui_MainWindow(object):
+    def checking(self,name,name_2):
+        if name.text() != "".rstrip() and name_2.text() != "".rstrip():
+            self.window = QtWidgets.QMainWindow()
+            self.ui = uwc()
+            self.ui.setupUi(self.window)
+            self.window.show()
+    def contents(self):
+        self.window = QtWidgets.QMainWindow()
+        self.ui = uw()
+        self.ui.setupUi(self.window)
+        self.window.show()
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(464, 392)
@@ -41,29 +52,32 @@ class Ui_MainWindow(object):
         self.name.setGeometry(QtCore.QRect(130, 200, 311, 31))
         self.name.setObjectName("name")
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton.setGeometry(QtCore.QRect(60, 260, 91, 31))
+        self.pushButton.setGeometry(QtCore.QRect(60, 300, 91, 31))
         self.pushButton.setObjectName("pushButton")
         self.pushButton_2 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_2.setGeometry(QtCore.QRect(170, 260, 121, 31))
+        self.pushButton_2.setGeometry(QtCore.QRect(170, 300, 121, 31))
         self.pushButton_2.setObjectName("pushButton_2")
         self.pushButton_3 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_3.setGeometry(QtCore.QRect(310, 260, 111, 31))
+        self.pushButton_3.setGeometry(QtCore.QRect(310, 300, 111, 31))
         self.pushButton_3.setObjectName("pushButton_3")
+        self.name_2 = QtWidgets.QLineEdit(self.centralwidget)
+        self.name_2.setGeometry(QtCore.QRect(130, 250, 311, 31))
+        self.name_2.setObjectName("name_2")
+        self.label_5 = QtWidgets.QLabel(self.centralwidget)
+        self.label_5.setGeometry(QtCore.QRect(30, 240, 91, 41))
+        self.label_5.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.label_5.setObjectName("label_5")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 464, 19))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
 
-        def content():
-            window = QtWidgets.QMainWindow()
-            ui = uw()
-            ui.setupUi(window)
-            window.show()
-
         self.retranslateUi(MainWindow)
         self.pushButton_2.clicked.connect(MainWindow.close)
-        self.pushButton_3.clicked.connect(content)
+        self.pushButton_3.clicked.connect(self.contents)
+        self.pushButton.clicked.connect(MainWindow.close)
+        self.pushButton.clicked.connect(self.checking(self,self.name,self.name_2))
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -80,6 +94,7 @@ class Ui_MainWindow(object):
         self.pushButton.setText(_translate("MainWindow", "Continue"))
         self.pushButton_2.setText(_translate("MainWindow", "Exit Setup"))
         self.pushButton_3.setText(_translate("MainWindow", "Content"))
+        self.label_5.setText(_translate("MainWindow", "Password:"))
 
 
 def start():
