@@ -9,22 +9,74 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from content import Ui_MainWindow as uw
 
 
 class Ui_Dialog(object):
-    def setupUi(self, Dialog):
+    def contents(self):
+        self.window = QtWidgets.QMainWindow()
+        self.ui = uw()
+        self.ui.setupUi(self.window)
+        self.window.show()
+    def setupUi(self, Dialog,namee,passworde):
         Dialog.setObjectName("Dialog")
-        Dialog.resize(554, 194)
+        Dialog.resize(714, 298)
+        self.label = QtWidgets.QLabel(Dialog)
+        self.label.setGeometry(QtCore.QRect(10, 10, 691, 71))
+        self.label.setAlignment(QtCore.Qt.AlignCenter)
+        self.label.setObjectName("label")
+        self.label_2 = QtWidgets.QLabel(Dialog)
+        self.label_2.setGeometry(QtCore.QRect(10, 90, 141, 31))
+        self.label_2.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.label_2.setObjectName("label_2")
+        self.label_3 = QtWidgets.QLabel(Dialog)
+        self.label_3.setGeometry(QtCore.QRect(10, 120, 141, 31))
+        self.label_3.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.label_3.setObjectName("label_3")
+        self.name = QtWidgets.QLabel(Dialog)
+        self.name.setGeometry(QtCore.QRect(160, 90, 541, 21))
+        self.name.setText(namee)
+        self.name.setObjectName("name")
+        self.password = QtWidgets.QLabel(Dialog)
+        self.password.setGeometry(QtCore.QRect(160, 130, 541, 21))
+        self.password.setText(passworde)
+        self.password.setObjectName("password")
+        self.pushButton = QtWidgets.QPushButton(Dialog)
+        self.pushButton.setGeometry(QtCore.QRect(20, 210, 171, 41))
+        self.pushButton.setObjectName("pushButton")
+        self.pushButton_2 = QtWidgets.QPushButton(Dialog)
+        self.pushButton_2.setGeometry(QtCore.QRect(330, 210, 191, 41))
+        self.pushButton_2.setObjectName("pushButton_2")
+        self.pushButton_3 = QtWidgets.QPushButton(Dialog)
+        self.pushButton_3.setGeometry(QtCore.QRect(510, 210, 201, 41))
+        self.pushButton_3.setObjectName("pushButton_3")
+        self.pushButton_4 = QtWidgets.QPushButton(Dialog)
+        self.pushButton_4.setGeometry(QtCore.QRect(200, 210, 161, 41))
+        self.pushButton_4.setObjectName("pushButton_4")
 
         self.retranslateUi(Dialog)
+        self.pushButton.clicked.connect(Dialog.close)
+        self.pushButton.clicked.connect(Dialog.accept)
+        self.pushButton_2.clicked.connect(Dialog.close)
+        self.pushButton_3.clicked.connect(self.contents)
+        self.pushButton_4.clicked.connect(Dialog.close)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
+        self.label.setText(_translate("Dialog", "Make sure the name you entered is correct. To change it  \n"
+", select change. Otherwise,  \n"
+"select Continue."))
+        self.label_2.setText(_translate("Dialog", "Name:"))
+        self.label_3.setText(_translate("Dialog", "Password:"))
+        self.pushButton.setText(_translate("Dialog", "Continue"))
+        self.pushButton_2.setText(_translate("Dialog", "Exit Setup"))
+        self.pushButton_3.setText(_translate("Dialog", "Content"))
+        self.pushButton_4.setText(_translate("Dialog", "Edit"))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     Dialog = QtWidgets.QDialog()
